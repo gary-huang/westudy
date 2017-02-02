@@ -1,0 +1,83 @@
+<div class="login-page">
+	<div class="login-topBlock">
+	</div>
+	<div class="login-container">
+		
+		<div class="login-title galada">
+			WeStudy
+		</div>
+		
+		<hr class="login-lineDividers" size="10px">
+
+		<div style="padding-top:15px;padding-left:30px;padding-right:30px;text-align:left;font-weight:bold;font-size:20px;font-family:cursive,Comic Sans MS,Helvetica Neue,Helvetica,sans-serif">
+			"Let's start studying you degenerates"
+		</div>
+		<div style="padding-top:15px;padding-left:30px;padding-right:30px;text-align:right;font-weight:bold;font-size:20px;font-family:cursive,Comic Sans MS,Helvetica Neue,Helvetica,sans-serif">
+			-Feridun
+		</div>
+		<hr class="login-lineDividers" size="10px">
+<!--
+		<div class="login-buttons">
+			<a class="login-buttons bluefb">Log In with Facebook</a>
+		</div>
+-->
+		<div class="login-fields-desc bold">
+			Email Address
+		</div>
+		
+		<div class="login-text">
+			{{input type="text" placeholder="Email Address" value=email class="inputbox" maxlength="85"}}
+		</div>
+		
+		<div class="login-fields-desc bold">
+			Password
+		</div>
+
+		<div class="login-text">
+			{{input type="text" placeholder="Password" value=password type="password" class="inputbox" maxlength="85"}}
+		</div>
+
+
+		<div class="forgotPwd">
+			<a style="color:black;padding-top:00px" href="https://google.ca" target="_blank">
+				Forgot your password?
+			</a>
+		</div>
+		<br>
+		<div class="login-buttons">
+			<a class="login-buttons green" {{action 'login'}}>
+				Log In
+			</a>
+		</div>
+		<br>
+		<div class="login-buttons">
+			<a class="login-buttons red" {{action 'signup'}}>
+				Sign Up
+			</a>
+		</div>
+<br><br>
+		<!-- The frontend Modal -->
+		<div id="loginFailurePrelim" class="login-modal">
+
+		  <!-- Modal content -->
+		  <div class="login-modal-content">
+		    <span class="close">x</span>
+		    <p>A valid email must be entered, and the password must not be blank.</p>
+		  </div>
+
+		</div>
+
+		<!-- The backend Modal -->
+		<div id="loginFailureBack" class="login-modal">
+
+		  <!-- Modal content -->
+		  <div class="login-modal-content">
+		    <span class="close">x</span>
+		    <p>Login failed, password do not match.</p>
+		  </div>
+
+		</div>
+
+	</div>
+	
+</div>

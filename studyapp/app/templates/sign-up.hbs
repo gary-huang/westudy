@@ -1,0 +1,169 @@
+<div class="signup-container">
+	{{#if (int-equal currentStep 1)}}
+	<div class="signup-background1">
+		<div class="background">
+		<br><br>
+		<div class="signup-titles">
+			<span class="bold large">Join Now!</span><br>
+			Connect With Other Students in Your Classes!
+		</div>
+		<br>
+		<div class="signup-question">
+			What University do <span class="underline">you</span> go to?
+		</div>
+		{{#power-select options=universities onchange=(action 'chooseUniversity') placeholder="Please choose your university." allowClear=true selected=uni class="powerselect" searchField="name" as |uni|}}
+			{{uni.name}}
+		{{/power-select}}
+		{{#if uniError}}
+			<div class="error">
+				Please choose a university to continue.
+			</div>
+		{{/if}}
+		<br><br>
+		<div class="signup-question">
+			What Courses are <span class="underline">you</span> currently taking?
+		</div>
+		{{#power-select options=courses onchange=(action 'addCourse') placeholder="Please select a course." allowClear=true class="powerselect" searchField="name" as |course|}}
+			{{course.name}} - ({{course.id}})
+		{{/power-select}}
+		{{#if courseError}}
+			<div class="error">
+				Please select atleast one service to continue.
+			</div>
+		{{/if}}
+		{{#if anyCourses}}
+			<div class="courses-container">
+				<div class="text-center padding-top">
+					<span class="bold">Courses Selected:</span>
+				</div>
+				<div class="course-list">
+					{{#each selectedCourses as |course index|}}
+						{{fa-icon "graduation-cap"}} {{course.name}} - ({{course.id}}) <span class="span-float-right"><a {{action 'removeCourse' index}}>{{fa-icon "minus-circle"}}</a></span><br>
+					{{/each}}
+				</div>
+			</div>
+		{{/if}}
+
+		<div class="signup-buttons">
+			<a class="button gold" {{action 'nextStep'}}>Continue</a>
+		</div>
+		</div>
+		<br>		
+	</div>
+	{{else}}
+	<div class="signup-background2">
+		<div class="background">
+		<br><br>
+		<div class="signup-titles">
+			<span class="bold large">Account Information</span><br>
+			Input a few pieces of information to get started
+		</div>
+		<br>
+		<!--<div class="signup-question">
+			What is your first name?
+		</div>-->
+		{{#if firstnameError}}
+			<div class="error">
+				Please enter a valid first name to continue.
+			</div>
+		{{/if}}
+		<div class="text-center">
+			{{input type="text" value=firstname class="inputbox" maxlength="85" placeholder="First Name"}}
+		</div>
+		<br>
+		<!--<div class="signup-question">
+			What is your last name?
+		</div>-->
+		{{#if lastnameError}}
+			<div class="error">
+				Please enter a valid last name to continue.
+			</div>
+		{{/if}}
+		<div class="text-center">
+			{{input type="text" value=lastname class="inputbox" maxlength="85" placeholder="Last Name"}}
+		</div>
+		<br>
+		<!--<div class="signup-question">
+			Enter your email address
+		</div>-->
+		{{#if emailError}}
+			<div class="error">
+				Please enter a valid email to continue.
+			</div>
+		{{/if}}
+		<div class="text-center">
+			{{input type="text" value=email class="inputbox" maxlength="85" placeholder="Email Address"}}
+		</div>
+		<br>
+		<!--<div class="signup-question">
+			Create your password
+		</div>-->
+		{{#if password1Error}}
+			<div class="error">
+				Please enter a valid password to continue.
+			</div>
+		{{/if}}
+		<div class="text-center">
+			{{#if displayPassword}}
+				{{input type="text" value=password1 class="inputbox" maxlength="85" placeholder="Password"}}
+			{{else}}
+				{{input type="text" value=password1 class="inputbox" maxlength="85" type="password" placeholder="Password"}}
+			{{/if}}
+		</div>
+		<br>
+		<!--<div class="signup-question">
+			Confirm password
+		</div>-->
+		{{#if password2Error}}
+			<div class="error">
+				Please enter a valid password to continue.
+			</div>
+		{{/if}}
+		<div class="text-center">
+			{{#if displayPassword}}
+				{{input type="text" value=password2 class="inputbox" maxlength="85" placeholder="Confirm Password"}}
+			{{else}}
+				{{input type="text" value=password2 class="inputbox" maxlength="85" type="password" placeholder="Confirm Password"}}
+			{{/if}}
+		</div>
+		{{#if passwordMatchError}}
+			<div class="error">
+				Your passwords do not match.
+			</div>
+		{{/if}}
+		<div class="display-password-container">
+			{{#if displayPassword}}
+				<a {{action 'togglePassword'}}>{{fa-icon "check-square-o" size=2}}</a> <span class="text">- Hide your password</span>
+			{{else}}
+				<a {{action 'togglePassword'}}>{{fa-icon "square-o" size=2}}</a> <span class="text">- Display your password</span>
+			{{/if}}
+		</div>
+		<div class="signup-buttons">
+			<a class="button black" {{action 'prevStep'}}>Go Back</a>
+			<a id="submit" class="button gold" {{action 'nextStep'}}>Finish</a>
+		</div>
+		</div>
+		<div id="modal" class="modal">
+		  <div class="modal-content">
+		  	<div class="modal-header {{if accountAlreadyCreated 'error-red' ''}}">
+		      <span class="close">×</span>
+		    </div>
+		    <div class="modal-body">
+		    	{{#if accountAlreadyCreated}}
+			      <p>Looks like there was an account already with that email.</p>
+			      {{#link-to 'login' class="no-underline"}}<p class="modal-login-button">Lets go to the login page?</p>{{/link-to}}
+		    	{{else}}
+			      <p>Sign up complete</p>
+			      <p>Welcome to WeStudy</p>
+		    	{{/if}}
+		    </div>
+		    <div class="modal-footer {{if accountAlreadyCreated 'error-red' ''}}">
+		    </div>
+		  </div>
+		</div>
+	</div>
+	{{/if}}
+</div>
+<!--
+<a {{action 'saveUser'}} class="test">Save</a>
+-->

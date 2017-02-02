@@ -1,0 +1,1 @@
+/home/jason/Documents/websites/studyapp/studdyapp/studyapp/tmp/broccoli_merge_trees-input_base_path-UGpVZs41.tmp/0/modules/ember-cli-app-version/initializer-factory.js

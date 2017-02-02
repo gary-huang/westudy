@@ -1,0 +1,1 @@
+/home/aaron/Desktop/studdyapp/studyapp/node_modules/ember-power-select/app/components/power-select-multiple.js

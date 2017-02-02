@@ -1,0 +1,1 @@
+/home/aaron/Desktop/studdyapp/studyapp/tmp/funnel-input_base_path-JXzzVR1L.tmp/0/components/fa-icon.js

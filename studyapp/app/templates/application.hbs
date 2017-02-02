@@ -1,0 +1,23 @@
+<div class="top-bar">
+	{{#link-to 'landing' class="no-underline"}}<div class="logo-icon">{{fa-icon "graduation-cap"}}</div><h2 class="logo-name">WeStudy</h2>{{/link-to}}
+	<div class="top-menu-bar">
+		{{#if session.isAuthenticated}}
+			<div class="fiftyPerc right">
+				<a {{action 'logout'}} class="no-underline"><div class="login">Log Out</div></a>
+			</div>
+		{{else}}
+			<div class="fiftyPerc left">
+				{{#link-to 'sign-up' class="no-underline"}}<div class="signup">Signup</div>{{/link-to}}
+			</div>
+			<div class="fiftyPerc right">
+				{{#link-to 'login' class="no-underline"}}<div class="login"><div class="login-icon">{{fa-icon "male"}}</div> Log In</div>{{/link-to}}
+			</div>
+		{{/if}}
+	</div>
+	{{#unless session.isAuthenticated}}
+		<div class="learn-more">Learn More</div>
+	{{else}}
+		<div class="learn-more dashboard">Dashboard</div>
+	{{/unless}}
+</div>
+{{outlet}}

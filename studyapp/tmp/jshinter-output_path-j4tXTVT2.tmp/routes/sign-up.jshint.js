@@ -1,0 +1,5 @@
+QUnit.module('JSHint - routes/sign-up.js');
+QUnit.test('should pass jshint', function(assert) {
+  assert.expect(1);
+  assert.ok(false, 'routes/sign-up.js should pass jshint.\nroutes/sign-up.js: line 1, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nroutes/sign-up.js: line 2, col 1, \'import\' is only available in ES6 (use \'esversion: 6\').\nroutes/sign-up.js: line 4, col 1, \'export\' is only available in ES6 (use \'esversion: 6\').\n\n3 errors');
+});

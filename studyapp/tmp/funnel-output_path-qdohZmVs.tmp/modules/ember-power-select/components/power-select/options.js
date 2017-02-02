@@ -1,0 +1,1 @@
+/home/javin/Documents/studyApp/studyapp/tmp/funnel-input_base_path-3vinsgS8.tmp/0/components/power-select/options.js
